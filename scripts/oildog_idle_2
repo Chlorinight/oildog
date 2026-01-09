@@ -1,21 +1,15 @@
 // idea board:
 // oxy or dokomni if you are reading this here is the thigns i've thought of rn
-//
-// i do not think there are many easy ways to automate at the moment
-// could be more manual? like universal paperclips......
-//
-// TODO: come up with one i guess
-//
-// products : exchanges for money at a certain rate, maybe upgradable?
-// oildog : basic, costs 10$, dies at 31-32 and turns into oil at 52, like the basic game: outputs 10 products -- trying to stick to the original for this
+
+// OKAY SO I MIGHT OVERHAUL THE WHOLE THING, BACK TO THE DRAWING BOARDS
+
 
 
 let time = 0;
 let money = 0;
 if (2 != 5) {
 		console.log("working as intended!")
-		}
-	else {
+	} else {
 		console.log("WAHT THE FUCK")
 }
 
@@ -23,24 +17,48 @@ let slots = 5
 
 let dogsSlots = [
 
-] // [type (oildog, winedog etc),age (for show),realage (seconds),state (dog's state),products]
+]
+// [type,age,realage,state,products,tmp1,tmp2,tmp3,tmp4,tmp5...]
 
 function updateDog() {
-	for (let i = 0; i < dogslots.length; i++ ) {
-		console.log(dogslots[i])
+	for (let i = 0; i < dogsSlots.length; i++ ) {
+		let type = dogsSlots[i][0]
+		if (type == 9) {
+			equiusDogU(dogsSlots[i])
+		}
+		console.log(dogsSlots[i])
 	}
 }
 
 function buyOildog() {
-	let index = 0
-	for (let i = 0; i < dogsSlots.length; i++) {
-		if (dogsSlots[index][0] == 0) {
-			dogsSlots[index] = [1,1,1,1,10]
-		} else {
-			index++
-			if (index > slots) {
-				return
-			}
-		}
+	dogsSlots[0] = [1,0,0,1,0]
+	console.log(dogsSlots)
+}
+
+// dogs functions
+function oilDogU(array) {
+	array[1] = 2^array[2]
+	if (array[2] < 1023) {
+	array[2]++
+	}
+	if (array[2] > 31) {
+		array[3] = 2 // dead
+	}
+	if (array[2] > 32) {
+		array[3] = 3 // skeleton
+	}
+	if (array[2] > 51) {
+		array[3] = 4 // oil
+	}
+	if (array[2] > 1023) {
+		array[3] = 5 // nan
 	}
 }
+
+function incrementCounter() {
+  time++;
+  console.log("Counter:", time);
+  updateDog();
+} //DOKOMNI WHAT KIND OF BLACK MAGIC IS THIS WHY DOES IT ONLY WORK WHEN COPY AND PASTED
+
+const intervalID = setInterval(incrementCounter, 1000);
