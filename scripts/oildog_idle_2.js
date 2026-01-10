@@ -1,7 +1,9 @@
-// OKAY SO I MIGHT OVERHAUL THE WHOLE THING, BACK TO THE DRAWING BOARDS
-
 if (2 != 5) {
-		console.log("working as intended!")
+		console.log("running")
 	} else {
 		console.log("WAHT THE FUCK")
+} // haha get the reference
+
+class dogs{
+
 }
