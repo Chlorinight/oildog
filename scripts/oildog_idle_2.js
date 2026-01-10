@@ -13,14 +13,15 @@ if (2 != 5) {
 // worth: how much money it sells for
 // accel: how fast it ages
 // income: passive income
-// lifespan: debuff, self-explanatory
+// lifespan: self-explanatory, dies when the lifespan is reached if dog is mortal, and also used to calculate when the dog "dies" and turns into oil.
 
 class dogHead{
-	constructor(worth,accel,income,lifespan){
+	constructor(worth,accel,income,lifespan,mortal){
 		this.worth = worth
 		this.accel = accel
 		this.income = income
 		this.lifespan = lifespan
+		this.mortal = mortal
 	}
 }
 
@@ -35,6 +36,11 @@ class dog{
 		this.soul = soul
 		this.realage = 1
 		this.fakeage = 1
+		this.worth = 0
+	}
+	update(){
+		fakeage = 2^realage
+		realage++
 	}
 
 }

@@ -2,9 +2,8 @@ body {
 	background-color: #FFFFFF;
 }
 
-#bigdawg {
+.bigdawg {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   width: 40%;
 }
