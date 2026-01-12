@@ -59,13 +59,7 @@ class dog{
 		this.backLegs = hindlegs
 		this.tail = tail
 		this.soul = soul
-		this.realage = 1
-		this.fakeage = 1
-		this.mortal = false
-		this.value = head["worth"]+torso["worth"]+frontlegs["worth"]+hindlegs["worth"]+tail["worth"]
-		this.accel = head["accel"]*torso["accel"]*frontlegs["accel"]*hindlegs["accel"]*tail["accel"]
-		this.lifespan = head["lifespan"]+torso["lifespan"]+frontlegs["lifespan"]+hindlegs["lifespan"]+tail["lifespan"]
-		this.cost = head["cost"]+torso["cost"]+frontlegs["cost"]+hindlegs["cost"]+tail["cost"]
+		this.time = 1
 	}
 	update(){
 		fakeage = 2^realage
