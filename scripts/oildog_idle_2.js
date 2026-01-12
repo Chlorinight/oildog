@@ -62,11 +62,7 @@ class dog{
 		this.soul = soul
 		this.realage = 1
 		this.fakeage = 1
-		this.mortal = [head[5],torso[5],frontlegs[5],hindlegs[5],tail[5]].some(checkifanyistrue())
-		this.worth = head[4]+torso[4]+frontlegs[4]+hindlegs[4]+tail[4]
-		this.lifespan = head[3]+torso[3]+frontlegs[3]+hindlegs[3]+tail[3]								// this is really horrible but i do not care at the moment
-		this.income = head[2]+torso[2]+frontlegs[2]+hindlegs[2]+tail[2]
-		this.accel = head[1]*torso[1]*frontlegs[1]*hindlegs[1]*tail[1]
+		this.mortal = false
 	}
 	update(){
 		fakeage = 2^realage
