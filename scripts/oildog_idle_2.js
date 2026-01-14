@@ -53,6 +53,7 @@ function checkifanyistrue(v){
 
 class dog{
 	constructor(head,torso,frontlegs,hindlegs,tail,soul){
+		console.log("constructing dog");
 		this.head = head
 		this.body = torso
 		this.frontLegs = frontlegs
@@ -68,8 +69,9 @@ class dog{
 		this.cost = head["cost"]+torso["cost"]+frontlegs["cost"]+hindlegs["cost"]+tail["cost"]
 	}
 	update(){
-		fakeage = 2^realage
-		realage = realage+(realage*this.accel)
+		this.fakeage = 2^this.realage
+		this.realage = this.realage+(this.realage*this.accel)
+		document.getElementById("mainBody").textContent=frameCount;
 	}
 
 }
@@ -78,3 +80,23 @@ let oilHead = new dogHead(5,1,0,10,2,false)
 let dognew = new dog(oilHead,oilHead,oilHead,oilHead,oilHead,oilHead)
 console.log(dognew)
 // head,torso,frontlegs,hindlegs,tail,soul,realage,fakeage,othervariables...
+
+let frameCount = 0;
+
+async function updater()
+{
+	while (true)
+	{
+		window.requestAnimationFrame(function(){
+			dognew.update();
+		});
+		frameCount++;
+		await sleep(1000);
+	}
+}
+
+updater();
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
