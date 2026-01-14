@@ -35,14 +35,13 @@ let dogStore = []
 // mortal: if the dog is mortal
 
 class dogHead{
-	constructor(sellworth,accel,income,lifespan,cost,mortal,ageMult){
+	constructor(sellworth,accel,income,lifespan,cost,mortal){
 		this.worth = sellworth*sellMult
 		this.accel = accel
 		this.income = income
 		this.cost = cost
 		this.lifespan = lifespan
 		this.mortal = mortal
-  this.ageMult = ageMult
 	}
 } // basics
 
@@ -68,7 +67,6 @@ class dog{
 		this.accel = head["accel"]*torso["accel"]*frontlegs["accel"]*hindlegs["accel"]*tail["accel"]
 		this.lifespan = head["lifespan"]+torso["lifespan"]+frontlegs["lifespan"]+hindlegs["lifespan"]+tail["lifespan"]
 		this.cost = head["cost"]+torso["cost"]+frontlegs["cost"]+hindlegs["cost"]+tail["cost"]
-this.ageMult = head["ageMult"]+torso["ageMult"]+frontlegs["ageMult"]+hindlegs["ageMult"]+tail["ageMult"]
 	}
 	update(){
 		// this.fakeage = 2^this.realage
@@ -79,7 +77,7 @@ this.ageMult = head["ageMult"]+torso["ageMult"]+frontlegs["ageMult"]+hindlegs["a
 
 }
 
-let oilHead = new dogHead(5,1,0,10,2,false)
+let oilHead = new dogHead(5,1,0,10,2,false,)
 let dognew = new dog(oilHead,oilHead,oilHead,oilHead,oilHead,oilHead)
 console.log(dognew)
 // head,torso,frontlegs,hindlegs,tail,soul,realage,fakeage,othervariables...
