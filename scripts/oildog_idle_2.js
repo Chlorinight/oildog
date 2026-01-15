@@ -63,11 +63,7 @@ class dog{
 		this.realAge = 1
 		this.fakeAge = 1
 		this.mortal = false
-		this.value = head["worth"]+torso["worth"]+frontlegs["worth"]+hindlegs["worth"]+tail["worth"]
-		this.accel = head["accel"]*torso["accel"]*frontlegs["accel"]*hindlegs["accel"]*tail["accel"]
-		this.lifespan = head["lifespan"]+torso["lifespan"]+frontlegs["lifespan"]+hindlegs["lifespan"]+tail["lifespan"]
-		this.cost = head["cost"]+torso["cost"]+frontlegs["cost"]+hindlegs["cost"]+tail["cost"]
-	}
+	};
 	update(){
 		// this.fakeage = 2^this.realage
 		this.realAge = this.realAge+(this.realage*this.accel)
