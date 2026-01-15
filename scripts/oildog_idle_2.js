@@ -70,7 +70,6 @@ class dog{
 	}
 	update(){
 		// this.fakeage = 2^this.realage
-  this.fakeAge = this.ageMult^this.fakeAge
 		this.realAge = this.realAge+(this.realage*this.accel)
 		document.getElementById("mainBody").textContent=frameCount;
 	}
