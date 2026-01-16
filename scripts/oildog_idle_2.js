@@ -105,12 +105,29 @@ class dog{
 		if (isNaN(truncateTime(Math.floor(this.realAge))[0])) {
 		this.fakeAge = ((Math.round(mantissa*100)/100).toString() + "e+" + (Math.round(exponent*100)/100).toString() + " years")
 		} else {
-		this.fakeAge = truncateTime(Math.floor(this.realAge))
+		let age = truncateTime(Math.floor(this.realAge))
+		let seconds = ((age[0].toString())+" seconds")
+		let minutes = ((age[1].toString())+" minutes")
+		let hours = ((age[2].toString())+" hours")
+		let days = ((age[3].toString())+" days")
+		let years = ((age[4].toString())+" years")
+		if (age[4]) {
+			this.fakeAge = (hours+" "+days+" "+years)
+		} else if (age[3]) {
+			this.fakeAge = (minutes+" "+hours+" "+days)
+		} else if (age[2]) {
+			this.fakeAge = (seconds+" "+minutes+" "+hours)
+		} else if (age[1]) {
+			this.fakeAge = (seconds+" "+minutes)
+		} else if (age[0]) {
+			this.fakeAge = (seconds)
 		}
-		// this.accel = this.realAge << REALLY exponential
+		}
+		// this.accel = this.realAge // << REALLY exponential
 		this.realAge = this.realAge.plus(this.realAge.times(this.accel))
 		console.log(this.realAge)
 		document.getElementById("n1").textContent=this.fakeAge;
+		document.getElementById("n2").textContent=this.realAge;
 	}
 	sell(){
 	}
