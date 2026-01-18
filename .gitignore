@@ -6,9 +6,7 @@
 !.vscode/*.code-snippets
 *.code-workspace
 .history/
-# Built Visual Studio Code Extensions
 *.vsix
-# Ignore all local history of files
 .history
 .ionide
 reference
