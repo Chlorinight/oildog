@@ -104,25 +104,25 @@ class dog{
 		let mantissa = realYear["mantissa"]
 		let exponent = realYear["exponent"]
 		if (isNaN(truncateTime(Math.floor(this.realAge))[0])) {
-		this.fakeAge = ((Math.round(mantissa*100)/100).toString() + "e+" + (Math.round(exponent*100)/100).toString() + " years")
+			this.fakeAge = ((Math.round(mantissa*100)/100).toString() + "e+" + (Math.round(exponent*100)/100).toString() + " years")
 		} else {
-		let age = truncateTime(Math.floor(this.realAge))
-		let seconds = ((age[0].toString())+" seconds")
-		let minutes = ((age[1].toString())+" minutes")
-		let hours = ((age[2].toString())+" hours")
-		let days = ((age[3].toString())+" days")
-		let years = ((age[4].toString())+" years")
-		if (age[4]) {
-			this.fakeAge = (hours+" "+days+" "+years)
-		} else if (age[3]) {
-			this.fakeAge = (minutes+" "+hours+" "+days)
-		} else if (age[2]) {
-			this.fakeAge = (seconds+" "+minutes+" "+hours)
-		} else if (age[1]) {
-			this.fakeAge = (seconds+" "+minutes)
-		} else if (age[0]) {
-			this.fakeAge = (seconds)
-		}
+			let age = truncateTime(Math.floor(this.realAge))
+			let seconds = ((age[0].toString())+" seconds")
+			let minutes = ((age[1].toString())+" minutes")
+			let hours = ((age[2].toString())+" hours")
+			let days = ((age[3].toString())+" days")
+			let years = ((age[4].toString())+" years")
+			if (age[4]) {
+				this.fakeAge = (hours+" "+days+" "+years)
+			} else if (age[3]) {
+				this.fakeAge = (minutes+" "+hours+" "+days)
+			} else if (age[2]) {
+				this.fakeAge = (seconds+" "+minutes+" "+hours)
+			} else if (age[1]) {
+				this.fakeAge = (seconds+" "+minutes)
+			} else if (age[0]) {
+				this.fakeAge = (seconds)
+			}
 		}
 		// this.accel = this.realAge // << REALLY exponential (for testing)
 		this.realAge = this.realAge.plus(this.realAge.times(this.accel))
@@ -168,7 +168,7 @@ async function updater()
 	{
 		window.requestAnimationFrame(function(){
 			for (i=0; i<dogStore.length; i++){
-			dogStore[i].update();
+				dogStore[i].update();
 			}
 		});
 		frameCount++;
