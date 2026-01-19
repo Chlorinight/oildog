@@ -39,6 +39,35 @@ console.log(truncateTime(500000))
 
 let Money = new Decimal(0)
 
+let dFletters = [
+	'B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','V','W','Z','Ch','Sh','Ann','Fr'
+]
+
+let dMvowels = [
+	'a','e','i','o','u','y'
+]
+
+let dLletters = [
+	'x','c','n','l','e','n','ll','p','b','d','s'
+]
+
+let dLvowels = [
+	'ie','e','a','ouie','o','y','',''
+]
+
+function dogName_new(){
+	let dfl = dFletters[Math.round(Math.random()*dFletters.length)]
+	let dmv = dMvowels[Math.round(Math.random()*dMvowels.length)]
+	let dll = dLletters[Math.round(Math.random()*dLletters.length)]
+	let dlv = dLvowels[Math.round(Math.random()*dLvowels.length)]
+
+	return (dfl+dmv+dll+dlv)
+}
+
+for (i=0;i<50;i++){
+	console.log(dogName_new)
+}
+
 // load save
 
 
@@ -86,6 +115,7 @@ function checkifanyistrue(v){
 
 class dog{
 	constructor(head,torso,frontlegs,hindlegs,tail,soul){
+		this.identifier = (head+torso+frontlegs+hindlegs+tail+soul)
 		console.log("constructing dog");
 		this.head = head
 		this.body = torso
