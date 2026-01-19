@@ -126,8 +126,6 @@ class dog{
 		}
 		// this.accel = this.realAge // << REALLY exponential (for testing)
 		this.realAge = this.realAge.plus(this.realAge.times(this.accel))
-		document.getElementById("n1").textContent=this.fakeAge;
-		document.getElementById("n2").textContent=this.realAge;
 	}
 	sell(){
 		Money = Money + this.sellworth
