@@ -57,7 +57,7 @@ function display_truncatedTime(time){
 let Money = new Decimal(0)
 
 let dFletters = [
-	'B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','V','W','Z','Ch','Sh','A','Fr','Am'
+	'B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','V','W','Z','A','An','Am','Vr'
 ]
 
 let dMvowels = [
@@ -65,11 +65,15 @@ let dMvowels = [
 ]
 
 let dLletters = [
-	'x','c','n','l','e','n','ll','p','b','d','s','hn','t','u','v','ol'
+	'x','c','n','l','e','m','ll','p','b','d','s','hn','t','u','v','ol','r','f','g','i','h'
 ]
 
 let dLvowels = [
-	'ie','e','a','oa','o','y','ey','','','i','u','an','ay','','','a','e','ie','e','a','o','y','ey','','','i','u','an','ay','','','a','e','ouie'
+	'ie','e','a','oa','o','y','ey','','','i','u','an','ay','','','a','e','ie','e','a','o','y','ey','','','i','u','an','ay','','','a','e','ouie','sk'
+]
+
+let expletives = [
+	"Fag"
 ]
 
 function foundClassProperty_inArray(array,propertyname,propertyvalue){
@@ -101,9 +105,18 @@ function dogName_new(){
 		royaltitle = (' the '+royalnumber+numberending)
 	}
 	let dogName = (dfl+dmv+dll+dlv+royaltitle)
-	let testname = (dfl+dmv+dll+dlv)
-	if (testname == "Sex"){
+	let testName = (dfl+dmv+dll+dlv)
+	if (expletives.indexOf(testName)>-1){
 		dogName = "[ EXPLETIVE ]"
+	}
+	if (testName == "Tit"){
+		if (Math.round(Math.random()*50)==0){
+		dogName = "Chlori"
+		} else if ((Math.round(Math.random()*50)==0)){
+		dogName = "Oxy"
+		} else if ((Math.round(Math.random()*50)==0)){
+		dogName = "Dokomni"
+		}
 	}
 	return dogName
 }
