@@ -123,7 +123,7 @@ function dogName_new(){
 
 function gendogtest(){
 	let array = []
-	for (i=1;i<20;i++){
+	for (i=1;i<50;i++){
 		let name = dogName_new()
 		array.push(name)
 		array.push("<br>")
