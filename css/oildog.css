@@ -1,3 +1,7 @@
 body {
 	background-color: #FFFFFF;
 }
+
+img {
+	image-rendering: pixelated;
+}
