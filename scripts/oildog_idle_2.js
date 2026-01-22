@@ -35,10 +35,29 @@ function truncateTime(seconds){
 return [seconds,minutes,hours,days,years]
 };
 
+function display_truncatedTime(time){
+			let seconds = ((time[0].toString())+" seconds")
+			let minutes = ((time[1].toString())+" minutes")
+			let hours = ((time[2].toString())+" hours")
+			let days = ((time[3].toString())+" days")
+			let years = ((time[4].toString())+" years")
+			if (time[4]) {
+				return (hours+" "+days+" "+years)
+			} else if (Age[3]) {
+				return (minutes+" "+hours+" "+days)
+			} else if (Age[2]) {
+				return (seconds+" "+minutes+" "+hours)
+			} else if (Age[1]) {
+				return (seconds+" "+minutes)
+			} else if (Age[0]) {
+				return (seconds)
+			}
+};
+
 let Money = new Decimal(0)
 
 let dFletters = [
-	'B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','V','W','Z','Ch','Sh','Ann','Fr'
+	'B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','V','W','Z','Ch','Sh','A','Fr','Am'
 ]
 
 let dMvowels = [
@@ -46,11 +65,11 @@ let dMvowels = [
 ]
 
 let dLletters = [
-	'x','c','n','l','e','n','ll','p','b','d','s','hn','t'
+	'x','c','n','l','e','n','ll','p','b','d','s','hn','t','u','v','ol'
 ]
 
 let dLvowels = [
-	'ie','e','a','ouie','o','y','ey','','','i','u','an','ay','','','a','e','ie','e','a','o','y','ey','','','i','u','an','ay','','','a','e'
+	'ie','e','a','oa','o','y','ey','','','i','u','an','ay','','','a','e','ie','e','a','o','y','ey','','','i','u','an','ay','','','a','e','ouie'
 ]
 
 function foundClassProperty_inArray(array,propertyname,propertyvalue){
@@ -69,7 +88,7 @@ function dogName_new(){
 	let dll = dLletters[Math.round(Math.random()*(dLletters.length-1))]
 	let dlv = dLvowels[Math.round(Math.random()*(dLvowels.length-1))]
 	let royaltitle = ''
-	if (Math.round(Math.random()*100)==100){
+	if (Math.round(Math.random()*200)==1){
 		let royalnumber = (Math.round(Math.random()*500)).toString() // fuck why is this shit so hard to code in
 		let numberending = 'th'
 		if (royalnumber[royalnumber.length - 1] == '1'){
@@ -81,7 +100,23 @@ function dogName_new(){
 		}
 		royaltitle = (' the '+royalnumber+numberending)
 	}
-	return (dfl+dmv+dll+dlv+royaltitle)
+	let dogName = (dfl+dmv+dll+dlv+royaltitle)
+	let testname = (dfl+dmv+dll+dlv)
+	if (testname == "Sex"){
+		dogName = "[ EXPLETIVE ]"
+	}
+	return dogName
+}
+
+function gendogtest(){
+	let array = []
+	for (i=1;i<20;i++){
+		let name = dogName_new()
+		array.push(name)
+		array.push("<br>")
+	}
+	let dogs = array.join("")
+	document.getElementById("buttontest").innerHTML = dogs
 }
 
 // load save
@@ -164,23 +199,8 @@ class dog{
 		if (isNaN(truncateTime(Math.floor(this.Age))[0])) {
 			this.displayAge = ((Math.round(mantissa*100)/100).toString() + "e+" + (Math.round(exponent*100)/100).toString() + " years")
 		} else {
-			let Age = truncateTime(Math.floor(this.Age))
-			let seconds = ((Age[0].toString())+" seconds")
-			let minutes = ((Age[1].toString())+" minutes")
-			let hours = ((Age[2].toString())+" hours")
-			let days = ((Age[3].toString())+" days")
-			let years = ((Age[4].toString())+" years")
-			if (Age[4]) {
-				this.displayAge = (hours+" "+days+" "+years)
-			} else if (Age[3]) {
-				this.displayAge = (minutes+" "+hours+" "+days)
-			} else if (Age[2]) {
-				this.displayAge = (seconds+" "+minutes+" "+hours)
-			} else if (Age[1]) {
-				this.displayAge = (seconds+" "+minutes)
-			} else if (Age[0]) {
-				this.displayAge = (seconds)
-			}
+			let tAge = truncateTime(Math.floor(this.Age))
+			this.displayAge = display_truncatedTime(tAge)
 		}
 		// this.accel = this.Age // << REALLY exponential (for testing)
 		this.realAge = this.realAge.plus(1)
